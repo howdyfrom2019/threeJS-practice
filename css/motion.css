@@ -53,7 +53,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 3;
 }
+
 .dots > ul {
     list-style-type: none;
     height: 240px;
@@ -102,6 +104,27 @@ body {
     visibility: visible;
     opacity: 1;
     left: 24%;
+}
+
+.full-page .album .handle-btn {
+    position: absolute;
+    left: 200px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+.full-page .album .visible {
+    visibility: visible;
+}
+
+.full-page .album .invisible {
+    visibility: hidden;
+}
+
+.full-page .album .handle-btn:hover {
+    opacity: 1;
 }
 .full-page .album.active .disk {
     left: 180px;
@@ -181,6 +204,23 @@ body {
 .full-page .album:hover .disk {
     left: 40%;
     transition-delay: 0s;
+}
+
+.full-page .progress {
+    position: absolute;
+    top: 75%;
+    left: 24%;
+    transform: translate(-50%);
+    width: 600px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.full-page .progress #line {
+    width: 0;
+    height: 4px;
+    background: white;
+    transition: width 0.14s ease-in;
 }
 
 @keyframes rotateAni {
