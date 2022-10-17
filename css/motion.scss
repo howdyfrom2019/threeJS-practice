@@ -1,0 +1,206 @@
+$mobile: "only screen and (max-width: 720px)";
+$t_size: 16px;
+
+body {
+  overflow: hidden;
+  font-size: $t-size;
+}
+
+.song {
+  position: absolute;
+  top: 50%;
+  right: 4%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+
+.song-title {
+  margin-top: 14px;
+  font-family: malvie, sans-serif;
+  font-size: 152px;
+  color: transparent;
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: white;
+  //text-shadow: -4px 0 white, 0 4px white, 4px 0 white, 0 -4px white;
+}
+
+.singer-3 {
+  font-family: malvie, sans-serif;
+  font-size: 214px;
+  color: white;
+}
+
+.singer-4 {
+  font-family: malvie, sans-serif;
+  font-size: 144px;
+  color: white;
+}
+
+.song-highlight {
+  display: flex;
+  font-family: ok gung, sans-serif;
+  font-size: 48px;
+  color: white;
+  line-height: 69px;
+  text-align: right;
+}
+
+.dots {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 240px;
+
+  & > ul {
+    list-style-type: none;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .circle {
+      width: 16px;
+      height: 16px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+
+      &.active {
+        background: white;
+      }
+    }
+  }
+}
+
+
+.full-page {
+  background: linear-gradient(305.74deg, #DF3371 10.26%, #25ADDC 92.21%);
+  //background: linear-gradient(305.74deg, #39C1D9 10.26%, #B3CADA 92.21%);
+  //background: linear-gradient(305.74deg, #805012 10.26%, #FCE692 92.21%);
+  //background: linear-gradient(305.74deg, #82926A 10.26%, #A9A7A1 92.21%);
+  //background: linear-gradient(305.74deg, #4C744F 10.26%, #C4D9EC 92.21%);
+  //background: linear-gradient(305.74deg, #D24A3E 10.26%, #D8B56E 92.21%);
+  //background: linear-gradient(305.74deg, #A98E71 10.26%, #B39678 92.21%);
+  transition: background 1s ease-out;
+  width: 100vw;
+  height: 100vh;
+  touch-action: none;
+
+  .album {
+    position: absolute;
+    top: 50%;
+    left: 4%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.14s ease-in;
+    z-index: 2;
+
+    @media #{$mobile} {
+      top: 40%;
+      width: 300px;
+      height: 200px;
+    }
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+      left: 34%;
+      .disk {
+        left: 180px;
+        transition-delay: 0.5s;
+      }
+      @media #{$mobile} {
+        left: 45%;
+        .disk {
+          left: 35%;
+          transition: 0.5s;
+        }
+      }
+    }
+
+    .coverImg {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      box-shadow: 2px 4px 17px rgba(0, 0, 0, 0.25);
+      img {
+        width: inherit;
+        height: inherit;
+      }
+      @media #{$mobile} {
+        width: 250px;
+        height: 250px;
+      }
+    }
+
+    .disk {
+      position: absolute;
+      top: 4px;
+      left: 0;
+      width: 392px;
+      height: 392px;
+      border-radius: 50%;
+      background: linear-gradient(120deg, #000, #333333, #000);
+      box-shadow: 4px 14px 40px rgba(0,0,0,.3);
+      transition : left .6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: rotateAni 10s ease infinite;
+
+      @media #{$mobile}{
+        width : 244px;
+        height: 244px;
+      }
+
+      .disk_inner {
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width : 160px;
+        height: 160px;
+        background-color: #0473a4;
+        border-radius: 50%;
+        border : 3px dashed rgba(255,255,255,.4);
+        @media #{$mobile}{
+          width : 100px;
+          height: 100px;
+        }
+
+        &::after{
+          position: absolute;
+          content: "";
+          top:50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width : 7px;
+          height: 7px;
+          background-color: black;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    &:hover {
+      .disk {
+        left : 40%;
+        // transform: rotate(120deg);
+        transition-delay: 0s;
+        // transition : transform 0 ease-out;
+      }
+    }
+  }
+}
+
+@keyframes rotateAni {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
