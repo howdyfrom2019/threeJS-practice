@@ -4,18 +4,17 @@ const pauseButtons = document.getElementsByClassName("pause");
 const progressTracker = document.getElementById("line");
 
 const toggleMusic = (index) => {
-  setTimeout(() => {
-    audioResources[index].volume = 0.4;
-    if (audioResources[index].duration > 0 && !audioResources[index].paused) {
-      audioResources[index].pause();
-      pauseButtons[index].classList.replace("visible", "invisible");
-      playButtons[index].classList.replace("invisible", "visible");
-    } else {
-      audioResources[index].play();
-      pauseButtons[index].classList.replace("invisible", "visible");
-      playButtons[index].classList.replace("visible", "invisible");
-    }
-  }, 200);
+  if (audioResources[index].readyState < 2) return;
+  audioResources[index].volume = 0.4;
+  if (audioResources[index].duration > 0 && !audioResources[index].paused) {
+    audioResources[index].pause();
+    pauseButtons[index].classList.replace("visible", "invisible");
+    playButtons[index].classList.replace("invisible", "visible");
+  } else {
+    audioResources[index].play();
+    pauseButtons[index].classList.replace("invisible", "visible");
+    playButtons[index].classList.replace("visible", "invisible");
+  }
 }
 
 const fillProgress = (e) => {
