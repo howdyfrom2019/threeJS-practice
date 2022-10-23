@@ -74,6 +74,7 @@ body {
     color: white;
     line-height: 69px;
     text-align: right;
+    align-self: flex-end;
 }
 
 @media only screen and (max-width: 720px) {
@@ -136,6 +137,10 @@ body {
 
 .full-page {
     background: linear-gradient(305.74deg, #DF3371 10.26%, #25ADDC 92.21%);
+/*linear-gradient(305.74deg, #13a113 10.26%, #00ff00 92.21%)*/
+/*linear-gradient(305.74deg, #b10000 10.26%, #d59b79 92.21%)*/
+/*linear-gradient(305.74deg, #6b3c28 10.26%, #a57f5d 92.21%)*/
+/*linear-gradient(305.74deg, #cc4b2c 10.26%, #ed4c26 92.21%)*/
     transition: background 1s ease-out;
     width: 100vw;
     height: 100vh;
